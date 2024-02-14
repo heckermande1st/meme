@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constantly Changing Content</title>
+</head>
+<body>
+
+    <p id="changingText">This text will change constantly.</p>
+
+    <script>
+        // Array of different texts to cycle through
+        const texts = [
+            "Change 1",
+            "Change 2",
+            "Change 3",
+            // Add more texts as needed
+        ];
+
+        // Index to keep track of the current text
+        let currentIndex = 0;
+
+        // Function to update the text content
+        function updateText() {
+            // Update the text content with the current text from the array
+            document.getElementById('changingText').innerText = texts[currentIndex];
+            
+            // Increment the index, and loop back to the beginning if it exceeds the array length
+            currentIndex = (currentIndex + 1) % texts.length;
+        }
+
+        // Set an interval to call the updateText function every 2000 milliseconds (2 seconds)
+        setInterval(updateText, 2000);
+    </script>
+
+</body>
+</html>
